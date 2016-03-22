@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <table>
+
+  </table>
+
+
+
+  <body>
+    <form class="" action="index.html" method="post">
+      <p>Name: <input type="text" id="name" value=""></p>
+      <p>
+        Score: <input type="number" id="score" value="">
+      </p>
+      <input id="button"type="button" name="name" value="Submit">
+
+    </form>
+
+
+
+
+    <script type="text/javascript">
+      $("#button").click(function(){
+        var name = $("#name").val();
+        var score = $("#score").val();
+        var scoreboard = [];
+        var newscore = [name, score];
+        var stuff = "<tr><td>" + name + ": "+ "</td><td>" + score + "</td></tr>"
+        scoreboard.push(newscore);
+        console.log(scoreboard);
+        var table = $("table").append(stuff + scoreboard);
+        table.push("Test");
+
+        if(i=0, i >= 10, i++){
+          scoreboard.unshift(newscore);
+
+        };
+
+      });
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

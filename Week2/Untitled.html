@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button id="button" type="button" name="button" >Random</button>
+    <div id="coin">
+
+    </div>
+
+
+    <script type="text/javascript">
+    var penny = 1;
+    var nickel = 5;
+    var dime = 10;
+    var quarter = 25;
+    final = [];
+    function test() { 
+      var values = [penny,nickel,dime,quarter],
+        valueToUse = values[Math.floor(Math.random() * values.length)];
+    console.log(valueToUse);
+}
+    $( "#button" ).click(function() {
+      for (var i=0; i<5; ++i ){
+        $("#coin").text(test());
+      }
+//         $("#coin").text(coinsTotal);
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Name:<input id="name" type="text" name="name" value=""><br>
+    Score:<input id="Score" type="text" name="score" value=""><br>
+    <button id="button"type="button" name="button">Submit</button>
+
+
+
+
+
+    <script type="text/javascript">
+      $.ajax({
+        type: "GET",
+        url: "http://data.sparkfun.com/output/RMwmJOG53QiQvDWlzzWZ.json",
+        success: (response) => {
+        console.log(response);
+      }
+      });
+    var name = $("name").val();
+    var score = $("score").val();
+    console.log(name);
+    console.log(score);
+    $( "#button" ).click(function() {
+      $.ajax({
+        url: 'http://data.sparkfun.com/input/RMwmJOG53QiQvDWlzzWZ',
+        headers: {
+          'Phant-Private-Key':'lz1vWmP8G0UWyp2nMM2d'
+        },
+        method: 'POST',
+        dataType: 'json',
+        data: { name: name, score: score},
+        success: function(data) {
+        console.log('success: ' + data);
+    }
+  });
+    });
+
+    </script>
+
+  </body>
+</html>
