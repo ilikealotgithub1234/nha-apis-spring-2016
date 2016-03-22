@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>Temp Guesser</title>
+  </head>
+  <body>
+    <h1>TempGuessr</h1>
+    <h3>Try to Guess the Tempature Here</h3>
+    <p>
+      <b>Created by Lucas</b>
+    </p>
+    <input id="number" type="number" name="name" value="">
+    <button id="submit" type="button" name="button">Submit</button>
+
+
+
+
+
+    <script type="text/javascript">
+    $( "#submit" ).click(function() {
+
+      $.ajax({
+        url: "http://api.openweathermap.org/data/2.5/weather?q=New%20York,us&appid=b1b15e88fa797225412429c1c50c122a&units=imperial",
+        method: "GET",
+        success: (response) => {
+          var guesstemp = response.main.temp;
+          var newtemp = Math.floor( guesstemp );
+          var val = $("#number").val();
+          if(newtemp == val){
+            alert("You Got it Right, yay");
+          }else {
+            alert("Sorry, better luck next time");
+          }
+
+        }
+      });
+
+
+    });
+
+    </script>
+
+  </body>
+</html>

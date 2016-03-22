@@ -1,0 +1,1 @@
+Have **Face Recognition(http://www.faceplusplus.com/)** tell you your mood in weather and then **text(https://www.twilio.com/sms)** it to you with a quote in **Yoda(https://market.mashape.com/ismaelc/yoda-speak)** along with the **current weather(http://openweathermap.org/)** and it displays it on the site. Could be spelled with **Flickr Type(http://metaatem.net/words/)**

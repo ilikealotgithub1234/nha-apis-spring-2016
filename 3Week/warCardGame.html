@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button id="button" type="button" name="button">War!&#9876</button>
+    <p>
+      Aces Are Ones!
+    </p>
+
+    <p id="card">
+
+    </p>
+    <p id="card1">
+
+    </p>
+
+
+
+
+
+
+    <script type="text/javascript">
+      $("#button").click(function(){
+        $.ajax({
+          url: "http://deckofcardsapi.com/api/deck/new/draw/?count=2",
+          method: "GET",
+          success: function(result) {
+            var drawnCards = result.cards;
+            var card1 = result.cards[0].value;
+            var card2 = result.cards[0].suit;
+            var final = "Your card is a " + card1.toLowerCase() + " of " + card2.toLowerCase();
+            document.getElementById("card").innerHTML = final;
+            var cpuCard1 = result.cards[1].value;
+            var cpuCard2 = result.cards[1].suit;
+            var final1 = "Their card is a " + cpuCard1.toLowerCase() + " of " + cpuCard2.toLowerCase();
+            document.getElementById("card1").innerHTML = final1;
+
+            if (card1 == cpuCard1) {
+              alert("I was a tie!");
+
+            }if (card1 > cpuCard1){
+              alert("You Won!!");
+            }else{
+              alert("You lose!");
+            }
+
+
+
+
+          }
+          });
+      });
+    </script>
+  </body>
+</html>

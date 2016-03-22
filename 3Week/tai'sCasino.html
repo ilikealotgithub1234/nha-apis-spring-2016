@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button id="button" type="button" name="button">Start</button>
+    <p id="urCards">
+
+    </p>
+
+
+
+
+
+
+    <script type="text/javascript">
+      $("#button").click(function(){
+        $.ajax({
+          url: "http://deckofcardsapi.com/api/deck/new/draw/?count=2",
+          method: "GET",
+          success: function(result) {
+            var drawnCards = result.cards;
+            var cardOne = result.cards[0].code;
+            var cardOneVal = result.cards[0].value
+            var cardTwo = result.cards[1].code;
+            var cardTwoVal = result.cards[1].value
+            var final = "Cards:" + cardOne + ", " + cardTwo;
+            document.getElementById("urCards").innerHTML = final;
+            if (cardOneVal == "ACE") {
+              cardOneVal = 11;
+            }if (cardTwoVal == "ACE") {
+              cardTwoVal = 11;
+            }if (cardOneVal == "JACK") {
+              cardOneVal = 10
+            }if (cardTwoVal == "JACK") {
+              cardTwoVal = 10
+            }if (cardOneVal == "QUEEN") {
+              cardOneVal = 10
+            }if (cardTwoVal == "QUEEN") {
+              cardTwoVal = 10
+            }if (cardOneVal == "KING") {
+              cardOneVal = 10
+            }if (cardTwoVal == "KING") {
+              cardTwoVal = 10
+            }
+
+              if (cardOneVal + cardTwoVal == 21) {
+              alert("YOU WON!!");              
+            }else {
+              alert("YOU LOSE!");
+            }
+            console.log(cardOneVal);
+            console.log(cardTwoVal);
+
+          }
+          });
+      });
+    </script>
+  </body>
+</html>
