@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <button id="Submit" type="button" name="button">Submit</button>
+
+
+
+
+
+    <script type="text/javascript">
+      $.ajax({
+        url: "http://api.openweathermap.org/data/2.5/weather?q=New%20York,us&appid=b1b15e88fa797225412429c1c50c122a&units=imperial",
+        method: "GET",
+        success: (response) => {
+          console.log(response.main.temp)
+        }
+      });
+    </script>
+
+  </body>
+</html>
