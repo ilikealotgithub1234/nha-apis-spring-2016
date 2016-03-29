@@ -6,9 +6,6 @@
     <title></title>
   </head>
 
-  <table>
-
-  </table>
 
 
 
@@ -22,25 +19,62 @@
 
     </form>
 
+    <table id="stuff">
+      <tbody></tbody>
+    </table>
 
 
 
     <script type="text/javascript">
+      var scores = []
+      var names = []
+
+      var ary = [1,7,2,5]
+      function swap(ary,start,end) {
+        var temp = null;
+        temp=ary[start];
+        ary[start]=ary[end];
+        ary[end] = temp;
+        return ary;
+      }
+
+      function sort(ary, ary2) {
+        for(var start=0;start<ary.length; start++){
+          for (var end=0; end < ary.length; end++) {
+            if (parseInt(ary[start])<parseInt(ary[end])) {
+            ary = swap(ary,start,end);
+            ary2 = swap(ary2,start,end);
+
+            }
+          }
+        }
+        return ary;
+      }
+
+
       $("#button").click(function(){
         var name = $("#name").val();
         var score = $("#score").val();
-        var scoreboard = [];
-        var newscore = [name, score];
-        var stuff = "<tr><td>" + name + ": "+ "</td><td>" + score + "</td></tr>"
-        scoreboard.push(newscore);
-        console.log(scoreboard);
-        var table = $("table").append(stuff + scoreboard);
-        table.push("Test");
 
-        if(i=0, i >= 10, i++){
-          scoreboard.unshift(newscore);
+        //1. add name and score to names and scores array
 
-        };
+        scores.push(score);
+        names.push(name);
+
+
+
+        //2. sort (scores) AND use the same indices to sort names
+
+        sort(scores, names);
+        //3. rerender your table
+        $('#stuff').empty();
+        for (var i = 0; i < scores.length; i++) {
+
+
+        $('table#stuff').append('<tr><td>'+names[i]+': '+ scores[i] + '<tr><td>');
+
+
+        }
 
       });
 

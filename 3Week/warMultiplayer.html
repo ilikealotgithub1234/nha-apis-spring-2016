@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button id="button" type="button" name="button" onclick="style.display = 'none'">Start</button>
+    <p id="urCards">
+
+    </p>
+
+    <p id="Win">
+
+    </p>
+
+    <button id="submit" type="button" name="button">Submit</button>
+    <button id="result" type="button" name="button">Result</button>
+
+
+
+
+
+
+    <script type="text/javascript">
+      function extraCard(playerCard) {
+        if (playerCard == "ACE") {
+          playerCard = 11;
+          return playerCard;
+        }if (playerCard == "ACE") {
+          playerCard = 11;
+          return playerCard;
+        }if (playerCard == "JACK") {
+          playerCard = 10
+          return playerCard;
+        }if (playerCard == "JACK") {
+          playerCard = 10
+          return playerCard;
+        }if (playerCard == "QUEEN") {
+          playerCard = 10
+          return playerCard;
+        }if (playerCard == "QUEEN") {
+          playerCard = 10
+          return playerCard;
+        }if (playerCard == "KING") {
+          playerCard = 10
+          return playerCard;
+        }if (playerCard == "KING") {
+          playerCard = 10
+          return playerCard;
+        }else{
+          playerCard = playerCard
+          return playerCard
+        }
+          console.log(playerCard);
+      }
+
+      var playerOne
+      var turn = 0;
+      var display
+
+      $("#button").click(function(){
+        $.ajax({
+          url: "http://deckofcardsapi.com/api/deck/new/draw/?count=52",
+          method: "GET",
+          success: function(result) {
+            var playerOne = extraCard(result.cards[0].value);
+            var turn = 0;
+            var display = "Your card is " + playerOne;
+            document.getElementById("urCards").innerHTML = display;
+
+
+            }
+
+
+          });
+      });
+    </script>
+  </body>
+</html>

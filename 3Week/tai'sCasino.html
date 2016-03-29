@@ -6,10 +6,17 @@
     <title></title>
   </head>
   <body>
-    <button id="button" type="button" name="button">Start</button>
+    <button id="button" type="button" name="button" onclick="style.display = 'none'">Start</button>
     <p id="urCards">
 
     </p>
+
+    <p id="Win">
+
+    </p>
+
+    <button id="hit" type="button" name="button">Hit</button>
+    <button id="stay" type="button" name="button">Stay</button>
 
 
 
@@ -19,7 +26,7 @@
     <script type="text/javascript">
       $("#button").click(function(){
         $.ajax({
-          url: "http://deckofcardsapi.com/api/deck/new/draw/?count=2",
+          url: "http://deckofcardsapi.com/api/deck/new/draw/?count=52",
           method: "GET",
           success: function(result) {
             var drawnCards = result.cards;
@@ -46,17 +53,30 @@
             }if (cardTwoVal == "KING") {
               cardTwoVal = 10
             }
+            var total = cardOneVal + cardTwoVal;
+            $("#button").click(function(){
 
-              if (cardOneVal + cardTwoVal == 21) {
-              alert("YOU WON!!");              
-            }else {
-              alert("YOU LOSE!");
-            }
-            console.log(cardOneVal);
-            console.log(cardTwoVal);
-
+          });
           }
           });
+      });
+
+      $("#submit").click(function(){
+        $.ajax({
+						url:"http://data.sparkfun.com/input/KJ7aVR8K30hNlQv3NmqK",
+						headers:{
+							'Phant-Private-Key' : 'vzrwlaZ8eKH2xGrM2XJz'
+						},
+						method: 'POST',
+						dataType: 'json',
+//						data:{name: name, quarters: q, dimes: d, pennies: p, nickles: n, total: total },
+						success: function(result){
+              
+
+								}
+
+							})
+
       });
     </script>
   </body>
